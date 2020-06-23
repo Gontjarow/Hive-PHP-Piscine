@@ -1,0 +1,82 @@
+.alkali-metal {
+	background-color: tomato;
+}
+
+.alkaline-earth {
+	background-color: peachpuff;
+}
+.transition-metal {
+	background-color: pink;
+}
+
+.post-transition {
+	background-color: lightsteelblue;
+}
+.reactive-nonmetal {
+	background-color: khaki;
+}
+
+.lanthanide {
+	background-color: plum;
+}
+
+.actinide {
+	background-color: orchid;
+}
+
+.noble-gas {
+	background-color: lightskyblue;
+}
+
+.metalloids {
+	background-color: rosybrown;
+}
+
+.unknown {
+	background-color: lightslategrey;
+}
+
+/* scaling */
+
+.symbol {
+	text-align: center;
+	font-size: 2vmin;
+	font-weight: 600;
+	display: block;
+}
+
+.number {
+	margin: 1 3;
+	font-size: 1vmin;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.weight {
+	margin: 1 3;
+	font-size: 1vmin;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+table {
+	width: 80%;
+	height: auto;
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%)
+}
+
+td {
+	position: relative;
+	width: 5vmin;
+	height: 5vmax;
+	max-width: 200;
+	max-height: 100;
+	background-color: white;
+	empty-cells: hide;
+	color: black;
+}
