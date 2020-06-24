@@ -54,7 +54,7 @@
 		ctype_digit($time[2]))
 	{
 		$unix_time = mktime($time[0], $time[1], $time[2], $month, $day, $year) - 3600;
-		echo "Seconds: $unix_time\n";
+		echo "$unix_time\n";
 	}
 	else
 	{
