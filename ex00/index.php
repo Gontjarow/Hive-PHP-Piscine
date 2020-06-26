@@ -44,6 +44,9 @@
 		background-color:rgba(181, 246, 255, 0.5);
 		box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
 	}
+	#login-input, #passwd-input {
+		margin-bottom: 10px;
+	}
 	#login-button {
 		width: 80%;
 		margin-left: 10%;
@@ -63,9 +66,9 @@
 </style>
 </head><body>
 <form id="login-form" method="GET" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-	Username: <input id="login" type="text" name="login"<?php insert_value("login"); ?> />
+	Username: <input id="login-input" type="text" name="login"<?php insert_value("login"); ?> />
 	<br />
-	Password: <input id="passwd" type="password" name="passwd"<?php insert_value("passwd"); ?> />
+	Password: <input id="passwd-input" type="password" name="passwd"<?php insert_value("passwd"); ?> />
 	<input id="login-button" type="submit" name="submit" value="OK">
 </form>
 </body></html>
