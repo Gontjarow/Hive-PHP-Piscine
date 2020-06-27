@@ -1,4 +1,32 @@
-<!-- <?php header("Content-Type: text/html; charset=UTF-8") ?> -->
+<?php
+	function sanitize_input($data)
+	{
+		$data = trim($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
+
+	function insert_value($key)
+	{
+		$value = $_SESSION[$key] ?? "";
+
+		if ($value)
+			echo " value=\"{$value}\"";
+	}
+
+	// session_start();
+	$_SESSION["login"];
+	$_SESSION["passwd"];
+
+	if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"])
+	{
+		$user = sanitize_input($_POST["login"]);
+		$pass = sanitize_input($_POST["passwd"]);
+		$_SESSION["login"] = $user;
+		$_SESSION["passwd"] = $pass;
+	}
+?>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
@@ -7,9 +35,9 @@
 	</head>
 	<body>
 		<div id="top-bar">
-			<a id="top-logo" href="index.html">Homepage</a>
-			<div class="button" id="top-login">Login</div>
-			<div class="button" id="top-cart">Cart</div>
+			<a id="top-logo" href="index.html">Bread house</a>
+			<a id="top-login" class="button" href="login.php">Login</a>
+			<a id="top-cart" class="button" href="product.php">Cart</a>
 		</div>
 		<div id="site-wrapper">
 			<form id="login-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
