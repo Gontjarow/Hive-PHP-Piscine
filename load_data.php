@@ -2,8 +2,8 @@
 // connect to localhost and create database:
 	$servername = "localhost:3306";
 	$username = "root";
-	$password = "password";
-	$con = mysqli_connect($servername, $username, $password);
+	define(PASSWORD, "choccy");
+	$con = mysqli_connect($servername, $username, PASSWORD);
 	if (!$con){
 		die('Could not connect: ' . mysqli_error());
 	}
@@ -17,8 +17,8 @@
 		die($message);
 	}
 	mysqli_close($con);
-	
-	$con = mysqli_connect("localhost:3306", "root", "password", "rush00");
+
+	$con = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 	if (!$con){
 		die('Could not connect: ' . mysqli_error());
 	}
@@ -51,9 +51,9 @@
 		die($message);
 	}
 
-	$query = "LOAD DATA LOCAL INFILE 'data/product.csv' 
-	INTO TABLE product 
-	FIELDS TERMINATED BY ';' 
+	$query = "LOAD DATA LOCAL INFILE 'data/product.csv'
+	INTO TABLE product
+	FIELDS TERMINATED BY ';'
 	ENCLOSED BY '\"'
 	IGNORE 1 ROWS;";
 

@@ -1,4 +1,5 @@
 <?php
+	define(PASSWORD, "choccy");
 
 	function add_to_cart($id) {
 		if (isset($_SESSION['cart']['id'])){
@@ -23,7 +24,7 @@
 
 	function cal_price($cart){
 		$total_price = 0;
-		$link = mysqli_connect("localhost:3306", "root", "password", "rush00");
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}

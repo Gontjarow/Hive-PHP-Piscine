@@ -1,7 +1,7 @@
 <?php
-
+define(PASSWORD, "choccy");
 	function get_products(){
-		$link = mysqli_connect("localhost:3306", "root", "password", "rush00");
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
@@ -16,7 +16,7 @@
 	}
 
 	function get_single_product($id){
-		$link = mysqli_connect("localhost:3306", "root", "password", "rush00");
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
@@ -29,7 +29,7 @@
 	}
 
 	function get_categories(){
-		$link = mysqli_connect("localhost:3306", "root", "password", "rush00");
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
@@ -44,7 +44,7 @@
 	}
 
 	function get_products_by_category($cat){
-		$link = mysqli_connect("localhost:3306", "root", "password", "rush00");
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
@@ -59,7 +59,7 @@
 	}
 
 	function get_products_by_origin($origin){
-		$link = mysqli_connect("localhost:3306", "root", "password", "rush00");
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
