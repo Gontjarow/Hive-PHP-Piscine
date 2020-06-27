@@ -1,3 +1,10 @@
+<?php
+	include("load_data.php");
+	include("query_db.php");
+	$products = get_products();
+	// print_r($products);
+?>
+
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
