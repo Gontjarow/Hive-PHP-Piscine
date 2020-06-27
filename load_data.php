@@ -2,7 +2,7 @@
 // connect to localhost and create database:
 	$servername = "localhost:3306";
 	$username = "root";
-	define(PASSWORD, "choccy");
+	define(PASSWORD, "password");
 	$con = mysqli_connect($servername, $username, PASSWORD);
 	if (!$con){
 		die('Could not connect: ' . mysqli_error());

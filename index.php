@@ -4,11 +4,14 @@
 	include("database_cart.php");
 	$products = get_products();
 	session_start();
+	// unset($_SESSION);
+	// print_r($_SESSION);
 	if(!isset($_SESSION['cart'])){
 		$_SESSION['cart'] = array();
 		$_SESSION['item_nb'] = 0;
 		$_SESSION['total_price'] = 0;
 	}
+	
 	// if ($_Get['action'] == 'add_to_cart') {
 	// 	add_to_cart($_GET['id']);
 	// 	$_SESSION['item_nb'] = cal_num($_SESSION['cart']);
