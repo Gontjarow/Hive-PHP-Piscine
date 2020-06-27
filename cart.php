@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<div id="top-bar">
-			<a id="top-logo" href="index.html">Bread house</a>
+			<a id="top-logo" href="index.php">Bread house</a>
 			<a id="top-login" class="button" href="login.php">Login</a>
 			<a id="top-cart" class="button" href="product.php">Cart</a>
 		</div>

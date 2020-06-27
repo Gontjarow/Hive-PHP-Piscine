@@ -12,6 +12,8 @@
 	background-color: rgb(240, 255, 254);
 	position: relative;
 	height: max(10vw, 200px);
+	background-size: cover;
+	background-position: center;
 }
 
 #category-products .name {

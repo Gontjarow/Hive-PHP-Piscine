@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<div id="top-bar">
-			<a id="top-logo" href="index.html">Homepage</a>
+			<a id="top-logo" href="index.php">Homepage</a>
 			<div class="button" id="top-login">Login</div>
 			<div class="button" id="top-cart">Cart</div>
 		</div>
