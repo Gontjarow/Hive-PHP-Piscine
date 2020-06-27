@@ -2,7 +2,15 @@
 	include("load_data.php");
 	include("query_db.php");
 	$products = get_products();
-	print_r($products);
+	session_start();
+	if(!isset($_SESSION['cart'])){
+		$_SESSION['cart'] = array();
+		$_SESSION['item_nb'] = 0;
+		$_SESSION['total_price'] = 0;
+	}
+	if ($_Get['action'] == 'add_to_cart') {
+
+	}
 ?>
 
 <html>
