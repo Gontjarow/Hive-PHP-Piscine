@@ -1,8 +1,8 @@
 <?php
 	include("load_data.php");
 	include("query_db.php");
-	$products = get_products();
-	// print_r($products);
+	$product = get_single_product($_GET["id"]);
+	print_r($product);
 ?>
 
 <html>
@@ -21,20 +21,25 @@
 		<div id="site-wrapper">
 			<!-- content begin -->
 			<div id="product-main">
-				<img id="product-img" class="main" src="img/300px-anpan.jpeg" alt="!TODO!" />
+				<?php
+				echo "<img id=\"product-img\" class=\"main\" src=" . $product["img"] . " />";
+				?>
+
 				<div id="product-right">
-					<h1 id="product-name">!TODO!</h1>
-					<h2 id="product-price">!TODO!</h2>
-					<p id="product-info">product info</p>
+					<h1 id="product-name"><? echo $product["name"]; ?></h1>
+					<h2 id="product-price"><? echo $product["price"]; ?></h2>
+					<p id="product-info"><? echo $product["information"]; ?></p>
 				</div>
 			</div>
-			<!-- <div id="miniwrap"> -->
 				<div id="product-showcase">sdf</div>
 				<form id="product-actions">
-					<input type="button" value="ADD TO CART" />
-					<input type="button" value="BUY NOW" />
+					<?php
+						echo "<a href=\"/product.php?action=add_to_cart&id=" . $product["id"] . "\" ><input type=\"button\" value=\"ADD CART\" /></a>";
+					?>
+
+					<!-- <a href="/product.php?action=add_to_cart&id=" ><input type="button" value="ADD CART" /></a> -->
+					<!-- <input type="button" value="BUY NOW" /> -->
 				</form>
-			<!-- </div> -->
 			<!-- content end -->
 		</div>
 	</body>
