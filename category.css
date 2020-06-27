@@ -8,7 +8,9 @@
 	background-color: rgb(231, 182, 198);
 }
 
-#category-products td {
+#category-products td,
+#category-products a {
+	display: table-cell;
 	background-color: rgb(240, 255, 254);
 	position: relative;
 	height: max(10vw, 200px);
