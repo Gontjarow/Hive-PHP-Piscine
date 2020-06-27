@@ -44,8 +44,16 @@ body {
 }
 
 #categories {
-	background-color: orangered;
 	height: 40px;
+	background-color: orangered;
+}
+
+#categories.mini > .button {
+	height: 100%;
+	padding: 0;
+	line-height: 40px;
+	text-align: center;
+	background-color: paleturquoise;
 }
 
 .button {
@@ -57,6 +65,3 @@ body {
 	background-color: orange;
 }
 
-#categories .mini > .button{
-	height: 100%;
-}
