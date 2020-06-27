@@ -14,7 +14,7 @@
 		$_SESSION['item_nb'] = cal_num($_SESSION['cart']);
 		$_SESSION['total_price'] = cal_price($_SESSION['cart']);
 	}
-	
+
 ?>
 
 <html>
@@ -32,11 +32,11 @@
 		<div id="site-wrapper">
 		<!-- content begin -->
 			<div id="categories" class="mini">
-				<a href="category.php?category=Flat" class="button">Flat bread</a>
-				<a href="category.php?category=Yeast" class="button">Yeast bread</a>
+				<a href="category.php?category=Flat bread" class="button">Flat bread</a>
+				<a href="category.php?category=Yeast bread" class="button">Yeast bread</a>
 				<a href="category.php?category=Pancake" class="button">Pancake</a>
-				<a href="category.php?category=Rye" class="button">Rye bread</a>
-				<a href="category.php?category=Sweet" class="button">Sweet bread</a>
+				<a href="category.php?category=Rye bread" class="button">Rye bread</a>
+				<a href="category.php?category=Sweet bread" class="button">Sweet bread</a>
 			</div>
 			<!-- list all products, random order? -->
 		</div>

@@ -26,8 +26,8 @@
 
 #category-products .price {
 	position: absolute;
-	bottom: min(3vw, 36px);
-	right: 0;
+	top: 0;
+	left: 0;
 	margin: 10;
 	text-align: right;
 	font-size: max(1vw, 12px);
