@@ -1,0 +1,35 @@
+#category-products {
+	width: 100%;
+	padding: 20px;
+	background-color: khaki;
+}
+
+#category-products tr {
+	background-color: rgb(231, 182, 198);
+}
+
+#category-products td {
+	background-color: rgb(240, 255, 254);
+	position: relative;
+	height: max(10vw, 200px);
+}
+
+#category-products .name {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 10;
+	text-align: right;
+	font-size: min(3vw, 36px);
+	color: rgba(0, 0, 0, 0.66);
+}
+
+#category-products .price {
+	position: absolute;
+	bottom: min(3vw, 36px);
+	right: 0;
+	margin: 10;
+	text-align: right;
+	font-size: max(1vw, 12px);
+	color: green;
+}

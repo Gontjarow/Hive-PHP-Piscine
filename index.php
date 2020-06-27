@@ -26,16 +26,16 @@
 		</div>
 		<div id="front-banner"></div>
 		<div id="site-wrapper">
+		<!-- content begin -->
 			<div id="categories" class="mini">
-				<div class="button">Flat bread</div>
-				<div class="button">Yeast bread</div>
-				<div class="button">Pancake</div>
-				<div class="button">Rye bread</div>
-				<div class="button">Sweet bread</div>
+				<a href="category.php?category=Flat" class="button">Flat bread</a>
+				<a href="category.php?category=Yeast" class="button">Yeast bread</a>
+				<a href="category.php?category=Pancake" class="button">Pancake</a>
+				<a href="category.php?category=Rye" class="button">Rye bread</a>
+				<a href="category.php?category=Sweet" class="button">Sweet bread</a>
 			</div>
-			asdasdad
-			<!-- promos -->
-			<!-- products -->
+			<!-- list all products, random order? -->
 		</div>
+		<!-- content end -->
 	</body>
 </html>
