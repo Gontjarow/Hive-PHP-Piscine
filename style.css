@@ -1,3 +1,7 @@
+body {
+	margin: 0;
+	padding: 0;
+}
 #top-bar {
 	width: 100%;
 	height: 100px;
@@ -12,11 +16,13 @@
 	padding: 0 20px;
 	font-size: 80px;
 	line-height: 100px;
+	background-color: white;
 }
 
 #top-login {
 	display: block;
 	float: right;
+	background-color: thistle;
 }
 
 #top-cart {
@@ -25,15 +31,21 @@
 }
 
 #front-banner {
-	/* height: ; */
+	width: 100%;
+	height: 360px;
+	background-color: teal;
 }
 
 #site-wrapper {
-
+	display: block;
+	margin: 0 auto;
+	max-width: 1300px;
+	background-color: wheat;
 }
 
 #categories {
-
+	background-color: orangered;
+	height: 40px;
 }
 
 .button {
@@ -45,6 +57,6 @@
 	background-color: orange;
 }
 
-.button .mini {
-
+#categories .mini > .button{
+	height: 100%;
 }
