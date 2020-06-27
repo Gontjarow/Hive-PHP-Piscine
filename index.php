@@ -13,8 +13,8 @@
 	<body>
 		<div id="top-bar">
 			<a id="top-logo" href="index.html">Bread house</a>
-			<div class="button" id="top-login">Login</div>
-			<div class="button" id="top-cart">Cart</div>
+			<a id="top-login" class="button" href="login.php">Login</a>
+			<a id="top-cart" class="button" href="cart.php">Cart</a>
 		</div>
 		<div id="front-banner"></div>
 		<div id="site-wrapper">
