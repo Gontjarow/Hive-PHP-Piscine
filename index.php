@@ -1,6 +1,7 @@
 <?php
 	include("load_data.php");
 	include("query_db.php");
+	include("database_cart.php");
 	$products = get_products();
 	session_start();
 	if(!isset($_SESSION['cart'])){
@@ -9,8 +10,11 @@
 		$_SESSION['total_price'] = 0;
 	}
 	if ($_Get['action'] == 'add_to_cart') {
-
+		add_to_cart($_GET['id']);
+		$_SESSION['item_nb'] = cal_num($_SESSION['cart']);
+		$_SESSION['total_price'] = cal_price($_SESSION['cart']);
 	}
+	
 ?>
 
 <html>
