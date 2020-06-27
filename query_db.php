@@ -20,7 +20,7 @@
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
-		$query = "SELECT * FROM category ORDER BY id ASC";
+		$query = "SELECT * FROM product WHERE id = $id ORDER BY id ASC";
 		$data = mysqli_query($link,$query);
 		$item = mysqli_fetch_array($data, MYSQLI_ASSOC);
 		mysqli_free_result($data);
@@ -48,7 +48,7 @@
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
-		$query = "SELECT * FROM product WHERE category = $cat ORDER BY id ASC";
+		$query = "SELECT * FROM product WHERE category = '$cat' ORDER BY id ASC";
 		$data = mysqli_query($link,$query);
 		while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
 			$products[] = $row;

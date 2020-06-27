@@ -1,7 +1,7 @@
 <?php
 
 	function add_to_cart($id) {
-		if (issset($_SESSION['cart']['id'])){
+		if (isset($_SESSION['cart']['id'])){
 			$_SESSION['cart']['id'] = $_SESSION['cart']['id'] + 1;
 			return true;
 		}else{
@@ -29,13 +29,13 @@
 		}
 		if (is_array($cart)) {
 			foreach ($cart as $id => $num){
-				$query = "SELECT * FROM products WHERE id='$id'";
+				$query = "SELECT * FROM product WHERE id=$id";
 				$data = mysqli_query($link, $query);
 				if ($data){
 					$item =  mysqli_fetch_array($data, MYSQLI_ASSOC);
 					$total_price += $num * $item['price'];
 				}
-				mysqli_free_result($data);
+				// mysqli_free_result($data);
 			}
 		}
 		mysqli_close($link);

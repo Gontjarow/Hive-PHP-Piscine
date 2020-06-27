@@ -120,13 +120,18 @@
 		die($message);
 	}
 
-	// create user table::
-	// $query = "CREATE TABLE IF NOT EXISTS users (
-	// 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	// 	login VARCHAR(50) NOT NULL,
-	// 	password VARCHAR(300) NOT NULL,
-	// 	cart 
-	// );";
+	$query = "CREATE TABLE IF NOT EXISTS users (
+		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		login varchar(16) NOT NULL,
+		passwd varchar(500) DEFAULT NULL
+	);";
+	if (mysqli_query($con, $query)){
+		echo "";
+	}else{
+		$message  = 'Invalid query: '.mysqli_error()."\n";
+		$message .= 'Whole query: '.$query;
+		die($message);
+	}
 
 	mysqli_close($con);
 

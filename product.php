@@ -1,8 +1,18 @@
 <?php
 	include("load_data.php");
 	include("query_db.php");
+	include("database_cart.php");
 	$product = get_single_product($_GET["id"]);
-	print_r($product);
+	// print_r($product);
+	session_start();
+	// print_r($_GET);
+	if ($_GET['action'] == 'add_to_cart') {
+		// echo "hello\n";
+		add_to_cart($_GET['id']);
+		$_SESSION['item_nb'] = cal_num($_SESSION['cart']);
+		$_SESSION['total_price'] = cal_price($_SESSION['cart']);
+	}
+	print_r($_SESSION);
 ?>
 
 <html>

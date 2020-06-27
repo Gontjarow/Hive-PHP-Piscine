@@ -13,6 +13,9 @@
 	// 	add_to_cart($_GET['id']);
 	// 	$_SESSION['item_nb'] = cal_num($_SESSION['cart']);
 	// 	$_SESSION['total_price'] = cal_price($_SESSION['cart']);
+	// 	print_r($_SESSION);
+	// }else if ($_Get['action'] == 'check out'){
+	// 	header("location: login.php");
 	// }
 
 ?>
@@ -52,7 +55,7 @@
 							echo "</tr><tr>";
 					}
 					$url = $products[$i]['img'];
-					echo "<td style=\"background-image: url(", $products[$i]["img"] ,")\"><h1 class=\"name\"><a href=\"product.php?id=" . $products[$i]['id'] . "\">", $products[$i]["name"], "</a></h1>";
+					echo "<td style=\"background-image: url(", $products[$i]["img"] ,")\"><h1 class=\"name\">", $products[$i]["name"], "</h1>";
 					echo "<h2 class=\"price\">", $products[$i]["price"], "</h2></td>";
 				}
 				echo "</tr>";
