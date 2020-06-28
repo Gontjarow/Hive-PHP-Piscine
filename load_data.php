@@ -123,7 +123,9 @@
 	$query = "CREATE TABLE IF NOT EXISTS users (
 		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		login varchar(16) NOT NULL,
-		passwd varchar(500) DEFAULT NULL
+		passwd varchar(500) DEFAULT NULL,
+		admin BOOLEAN,
+		cart TEXT
 	);";
 	if (mysqli_query($con, $query)){
 		echo "";
