@@ -46,7 +46,7 @@
 							echo '<tr class="cart-item">';
 							echo '<td class="name">'. $item['name']. '</td>';
 							
-							echo '<td class="price">'.$item['price'].'</td>';
+							echo '<td class="price">'.$item['price'].' €</td>';
 
 							echo '<td class="count">'.$num.'</td>';
 							echo '<td class="total">'.$item['price']*$num.' €</td>';
