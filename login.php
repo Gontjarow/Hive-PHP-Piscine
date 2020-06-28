@@ -7,10 +7,7 @@
 		$data = htmlspecialchars($data);
 		return $data;
 	}
-	// session_start();
-	// $_SESSION["login"];
-	// $_SESSION["passwd"];
-
+	
 	if ($_POST["register"]){
 		$login = sanitize_input($_POST["login"]);
 		$passwd = sanitize_input($_POST["passwd"]);

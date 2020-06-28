@@ -1,5 +1,6 @@
 <?php
 	define(PASSWORD, "password");
+
 	function get_products(){
 		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
@@ -20,6 +21,7 @@
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
+		$id = mysqli_real_escape_string($link, $id);
 		$query = "SELECT * FROM product WHERE id = $id ORDER BY id ASC";
 		$data = mysqli_query($link,$query);
 		$item = mysqli_fetch_array($data, MYSQLI_ASSOC);
@@ -48,6 +50,7 @@
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
+		$cat = mysqli_real_escape_string($link, $cat);
 		$query = "SELECT * FROM product WHERE category = '$cat' ORDER BY id ASC";
 		$data = mysqli_query($link,$query);
 		while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
@@ -63,6 +66,7 @@
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
+		$origin = mysqli_real_escape_string($link, $origin);
 		$query = "SELECT * FROM product WHERE origin = $origin ORDER BY id ASC";
 		$data = mysqli_query($link,$query);
 		while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {
