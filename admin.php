@@ -124,6 +124,7 @@
 				}
 			?>
 			</table>
+			<a id="checkout" href="add_product.php">New Product</a>
 		</div>
 	</body>
 </html>
