@@ -4,10 +4,17 @@
 	include("database_cart.php");
 	$products = get_products();
 	session_start();
+	echo "<!--", "\nSession ", print_r($_SESSION, TRUE), "-->", "\n";
 	if(!isset($_SESSION['cart'])){
 		$_SESSION['cart'] = array();
 		$_SESSION['item_nb'] = 0;
 		$_SESSION['total_price'] = 0;
+	}
+	if ($_GET['action'] == 'logout')
+	{
+		$_SESSION = array();
+		// $_SESSION['logged_in'] = "";
+		// session_destroy();
 	}
 ?>
 
@@ -18,19 +25,7 @@
 		<title>e-commerce</title>
 	</head>
 	<body>
-		<div id="top-bar">
-			<a id="top-logo" href="index.php">Bread house</a>
-			<a id="top-login" class="button" href="login.php">Login</a>
-			<a id="top-cart" class="button" href="cart.php">Cart</a>
-		</div>
-		<div id="front-banner"></div>
-		<div id="categories" class="mini">
-			<a href="category.php?category=Flat bread" class="button">Flat bread</a>
-			<a href="category.php?category=Yeast bread" class="button">Yeast bread</a>
-			<a href="category.php?category=Pancake" class="button">Pancake</a>
-			<a href="category.php?category=Rye bread" class="button">Rye bread</a>
-			<a href="category.php?category=Sweet bread" class="button">Sweet bread</a>
-		</div>
+	<?php require('page-header.php'); ?>
 		<div id="site-wrapper">
 		<!-- content begin -->
 			<!-- list all products, random order? -->

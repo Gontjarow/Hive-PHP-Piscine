@@ -1,6 +1,27 @@
 <?php
+	include("user_db.php");
 	session_start();
-	define(PASSWORD, "choccy");
+	define(PASSWORD, "password");
+	echo "<!--", "\nSession ", print_r($_SESSION, TRUE), "-->", "\n";
+
+	if ($_GET['action'] == 'delete_user')
+	{
+		$user = $_GET['login'];
+		if ($user != "root")
+		{
+			delete_user($user);
+		}
+	}
+	else if ($_GET['action'] == 'clear_cart')
+	{
+		$user = get_user($_GET['login']);
+		$user_session = unserialize($user['cart']);
+		$user_session['cart'] = array();
+		$user_session['item_nb'] = 0;
+		$user_session['total_price'] = 0;
+		$serial = serialize($user_session);
+		update_user_cart($_GET['login'], $serial);
+	}
 ?>
 
 <html>
@@ -10,7 +31,7 @@
 		<title>e-commerce</title>
 	</head>
 	<body>
-		<?php require('page-header.html'); ?>
+		<?php require('page-header.php'); ?>
 		<div id="site-wrapper">
 			<!-- content begin -->
 			<table id=cart-content>
@@ -32,14 +53,15 @@
 
 				foreach ($data as $user)
 				{
-							echo '<tr class="cart-item">';
-							echo '<td class="name">' . $user['login'] . '</td>';
-							echo '<td class="price">';
-								echo '<a href="/admin.php?action=clear_cart&user=', $user['login'], '"><input type="button" class="button warning" value="Clear cart" /></a>';
-							echo '</td>';
-							echo '<td class="price">';
-								echo '<a href="/admin.php?action=delete_user&user=', $user['login'], '"><input type="button" class="button danger" value="Delete user" /></a>';
-							echo '</td>';
+					echo '<tr class="cart-item">';
+					echo '<td class="name">' . $user['login'] . '</td>';
+					echo '<td class="price">';
+						echo '<a href="/admin.php?action=clear_cart&login=', $user['login'], '"><input type="button" class="button warning" value="Clear cart" /></a>';
+					echo '</td>';
+					echo '<td class="price">';
+						echo '<a href="/admin.php?action=delete_user&login=', $user['login'], '"><input type="button" class="button danger" value="Delete user" /></a>';
+					echo '</td>';
+					echo "<!--", "\nCart ", print_r($user, TRUE), "-->", "\n";
 				}
 			?>
 			</table>

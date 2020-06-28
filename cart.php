@@ -17,7 +17,7 @@
 		<title>e-commerce</title>
 	</head>
 	<body>
-	<?php require('page-header.html'); ?>
+	<?php require('page-header.php'); ?>
 		<div id="site-wrapper">
 			<!-- content begin -->
 			<table id=cart-content>

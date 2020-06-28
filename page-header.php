@@ -1,6 +1,18 @@
 <div id="top-bar">
 	<a id="top-logo" href="index.php">Bread house</a>
-	<a id="top-login" class="button" href="login.php">Login</a>
+	<?php
+		$user = $_SESSION['logged_in'];
+		if ($user)
+		{
+			echo '<a id="top-login" class="button" href="index.php?action=logout">Logout</a>';
+			// if (user is admin)
+				echo '<a id="top-admin" class="button" href="admin.php">Admin</a>';
+		}
+		else
+		{
+			echo '<a id="top-login" class="button" href="login.php">Login</a>';
+		}
+	?>
 	<a id="top-cart" class="button" href="cart.php">Cart</a>
 </div>
 <div id="categories" class="big">

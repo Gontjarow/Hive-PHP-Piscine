@@ -19,7 +19,7 @@ body {
 	background-color: white;
 }
 
-#top-login, #top-cart {
+#top-login, #top-cart, #top-admin {
 	display: block;
 	float: right;
 	width: auto;

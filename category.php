@@ -1,6 +1,7 @@
 <?php
 	include("install.php");
 	include("query_db.php");
+	session_start();
 	$products = get_products_by_category($_GET["category"]);
 ?>
 <html>
@@ -10,7 +11,7 @@
 		<title>e-commerce</title>
 	</head>
 	<body>
-		<?php require('page-header.html'); ?>
+		<?php require('page-header.php'); ?>
 		<div id="site-wrapper">
 			<!-- content begin -->
 			<!-- list specific category, order by name -->

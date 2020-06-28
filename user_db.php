@@ -1,6 +1,6 @@
 <?php
 	define(PASSWORD, "password");
-	
+
 	function add_user($login, $passwd){
 		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
@@ -26,8 +26,25 @@
 			echo "ERROR: Could not able to execute $sql. " . mysqli_connect_error($link);
 			return FALSE;
 		}
-		mysqli_close($link);
 	}
+
+	function delete_user($login){
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
+		if (!$link){
+			die('Could not connect: ' . mysqli_connect_error());
+		}
+		// $repeat = FALSE;
+		// $admin = FALSE;
+		$query = "DELETE FROM users WHERE login='$login'";
+		if(mysqli_query($link, $query)){
+			echo "User deleted successfully.";
+			return TRUE;
+		} else{
+			echo "ERROR: Could not able to execute $sql. " . mysqli_connect_error($link);
+			return FALSE;
+		}
+	}
+
 	function log_in($login, $passwd){
 		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
@@ -53,6 +70,23 @@
 		$query = "UPDATE `users` SET `cart`= '$cart' WHERE login = '$login'";
 		if(mysqli_query($link, $query)){
 			return TRUE;
+		} else{
+			echo "ERROR: Could not able to execute $sql. " . mysqli_connect_error($link);
+			return FALSE;
+		}
+	}
+
+	function get_user($login){
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
+		if (!$link){
+			die('Could not connect: ' . mysqli_connect_error());
+		}
+		$query = "SELECT * FROM users WHERE login = '$login'";
+		$result = mysqli_query($link, $query);
+		$user = mysqli_fetch_array($result, MYSQLI_ASSOC);
+		mysqli_free_result($result);
+		if(mysqli_query($link, $query)){
+			return $user;
 		} else{
 			echo "ERROR: Could not able to execute $sql. " . mysqli_connect_error($link);
 			return FALSE;
