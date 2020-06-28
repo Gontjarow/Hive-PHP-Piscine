@@ -5,14 +5,14 @@
 	define(PASSWORD, "password");
 	$con = mysqli_connect($servername, $username, PASSWORD);
 	if (!$con){
-		die('Could not connect: ' . mysqli_error());
+		die('Could not connect: ' . mysqli_connect_error());
 	}
 	$db = "rush00";
 	$query = "CREATE DATABASE IF NOT EXISTS $db";
 	if (mysqli_query($con, $query)){
 		echo "";
 	}else{
-		$message  = 'Invalid query: '.mysqli_error()."\n";
+		$message  = 'Invalid query: '.mysqli_connect_error()."\n";
 		$message .= 'Whole query: '.$query;
 		die($message);
 	}
@@ -20,7 +20,7 @@
 
 	$con = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 	if (!$con){
-		die('Could not connect: ' . mysqli_error());
+		die('Could not connect: ' . mysqli_connect_error());
 	}
 // create product table and load the data:
 	$query = "CREATE TABLE IF NOT EXISTS product (
@@ -34,7 +34,7 @@
 	if (mysqli_query($con, $query)){
 		echo "";
 	}else{
-		$message  = 'Invalid query: '.mysqli_error()."\n";
+		$message  = 'Invalid query: '.mysqli_connect_error()."\n";
 		$message .= 'Whole query: '.$query;
 		die($message);
 	}
@@ -46,7 +46,7 @@
 	if (mysqli_query($con, $query)){
 		echo "";
 	}else{
-		$message  = 'Invalid query: '.mysqli_error()."\n";
+		$message  = 'Invalid query: '.mysqli_connect_error()."\n";
 		$message .= 'Whole query: '.$query;
 		die($message);
 	}
@@ -60,7 +60,7 @@
 	if (mysqli_query($con, $query)){
 		echo "";
 	}else{
-		$message  = 'Invalid query: '.mysqli_error()."\n";
+		$message  = 'Invalid query: '.mysqli_connect_error()."\n";
 		$message .= 'Whole query: '.$query;
 		die($message);
 	}
@@ -75,7 +75,7 @@
 	if (mysqli_query($con, $query)){
 		echo "";
 	}else{
-		$message  = 'Invalid query: '.mysqli_error()."\n";
+		$message  = 'Invalid query: '.mysqli_connect_error()."\n";
 		$message .= 'Whole query: '.$query;
 		die($message);
 	}
@@ -88,37 +88,37 @@
 	if (mysqli_query($con, $query)){
 		echo "";
 	}else{
-		$message  = 'Invalid query: '.mysqli_error()."\n";
+		$message  = 'Invalid query: '.mysqli_connect_error()."\n";
 		$message .= 'Whole query: '.$query;
 		die($message);
 	}
 
-	// create origin table and load the data:
-	$query = "CREATE TABLE IF NOT EXISTS origin (
-		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-		name VARCHAR(50) NOT NULL,
-		origin_id VARCHAR(100) NOT NULL
-	);";
-	if (mysqli_query($con, $query)){
-		echo "";
-	}else{
-		$message  = 'Invalid query: '.mysqli_error()."\n";
-		$message .= 'Whole query: '.$query;
-		die($message);
-	}
+	// // create origin table and load the data:
+	// $query = "CREATE TABLE IF NOT EXISTS origin (
+	// 	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	// 	name VARCHAR(50) NOT NULL,
+	// 	origin_id VARCHAR(100) NOT NULL
+	// );";
+	// if (mysqli_query($con, $query)){
+	// 	echo "";
+	// }else{
+	// 	$message  = 'Invalid query: '.mysqli_connect_error()."\n";
+	// 	$message .= 'Whole query: '.$query;
+	// 	die($message);
+	// }
 
-	$query = "LOAD DATA LOCAL INFILE 'data/origin.csv'
-	INTO TABLE origin
-	FIELDS ENCLOSED BY '\"'
-	TERMINATED BY ';'
-	IGNORE 1 ROWS;";
-	if (mysqli_query($con, $query)){
-		echo "";
-	}else{
-		$message  = 'Invalid query: '.mysqli_error()."\n";
-		$message .= 'Whole query: '.$query;
-		die($message);
-	}
+	// $query = "LOAD DATA LOCAL INFILE 'data/origin.csv'
+	// INTO TABLE origin
+	// FIELDS ENCLOSED BY '\"'
+	// TERMINATED BY ';'
+	// IGNORE 1 ROWS;";
+	// if (mysqli_query($con, $query)){
+	// 	echo "";
+	// }else{
+	// 	$message  = 'Invalid query: '.mysqli_connect_error()."\n";
+	// 	$message .= 'Whole query: '.$query;
+	// 	die($message);
+	// }
 
 	$query = "CREATE TABLE IF NOT EXISTS users (
 		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -130,7 +130,7 @@
 	if (mysqli_query($con, $query)){
 		echo "";
 	}else{
-		$message  = 'Invalid query: '.mysqli_error()."\n";
+		$message  = 'Invalid query: '.mysqli_connect_error()."\n";
 		$message .= 'Whole query: '.$query;
 		die($message);
 	}
@@ -149,6 +149,20 @@
 			die($message);
 		}
 	}
+
+	$query = "CREATE TABLE IF NOT EXISTS orders (
+		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		login varchar(16) NOT NULL,
+		cart TEXT
+	);";
+	if (mysqli_query($con, $query)){
+		echo "";
+	}else{
+		$message  = 'Invalid query: '.mysqli_connect_error()."\n";
+		$message .= 'Whole query: '.$query;
+		die($message);
+	}
 	mysqli_close($con);
+
 
 ?>
