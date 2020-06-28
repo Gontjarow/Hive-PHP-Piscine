@@ -20,7 +20,7 @@ session_start();
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="login.css">
+		<link rel="stylesheet" type="text/css" href="product.css">
 		<title>e-commerce</title>
 	</head>
 	<body>
