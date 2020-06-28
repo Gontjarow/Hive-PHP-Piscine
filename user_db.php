@@ -7,6 +7,7 @@
 			die('Could not connect: ' . mysqli_connect_error());
 		}
 		$repeat = FALSE;
+		$admin = FALSE;
 		$query = "SELECT login FROM users";
 		$data = mysqli_query($link,$query);
 		while ($row = mysqli_fetch_array($data, MYSQLI_ASSOC)) {

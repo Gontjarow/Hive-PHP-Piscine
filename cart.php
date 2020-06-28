@@ -51,7 +51,7 @@
 					<?php echo $session['total_price']." €"; ?></td>
 				</tr>
 			</table>
-			<a id="checkout" href="checkout.php">Checkout</a>
+			<a id="checkout" href="login.php">Checkout</a>
 			<!-- content end -->
 		</div>
 	</body>

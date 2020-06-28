@@ -124,7 +124,7 @@
 		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 		login varchar(16) NOT NULL,
 		passwd varchar(500) DEFAULT NULL,
-		admin BOOLEAN,
+		admin INT,
 		cart TEXT
 	);";
 	if (mysqli_query($con, $query)){
@@ -134,7 +134,16 @@
 		$message .= 'Whole query: '.$query;
 		die($message);
 	}
-
+	$passwd = hash('whirlpool', 'root');
+	$admin = TRUE;
+	$query = "INSERT INTO users (`id`, `login`, `passwd`, `admin`) VALUES (1,'root','$passwd', 1)";
+	if (mysqli_query($con, $query)){
+		echo "";
+	}else{
+		$message  = 'Invalid query: '.mysqli_connect_error()."\n";
+		$message .= 'Whole query: '.$query;
+		die($message);
+	}
 	mysqli_close($con);
 
 ?>

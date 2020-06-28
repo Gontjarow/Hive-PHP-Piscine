@@ -1,5 +1,5 @@
 <?php
-	include("load_data.php");
+	include("install.php");
 	include("query_db.php");
 	include("database_cart.php");
 	$products = get_products();
