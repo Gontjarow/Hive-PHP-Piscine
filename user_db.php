@@ -99,4 +99,21 @@
 			return FALSE;
 		}
 	}
+
+	function set_admin(string $login, int $status)
+	{
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
+		if (!$link){
+			die('Could not connect: ' . mysqli_connect_error());
+		}
+		$login = mysqli_real_escape_string($link, $login);
+		$query = "UPDATE users SET admin=$status WHERE login = '$login'";
+		if(!mysqli_query($link, $query))
+		{
+			echo "ERROR: set_admin: ($query)" . mysqli_connect_error($link);
+			return FALSE;
+		}
+		else
+			echo "wewew";
+	}
 ?>
