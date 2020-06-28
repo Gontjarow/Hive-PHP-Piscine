@@ -3,10 +3,10 @@
 	include("user_db.php");
 	$session = $_SESSION;
 	define(PASSWORD, "password");
+	
+	
 	if ($_GET['login']){
 		$_SESSION['logged_in'] = $_GET['login'];
-		$user_cart = serialize($_SESSION);
-		update_user_cart($_GET['login'], $user_cart);
 	}
 ?>
 
@@ -56,8 +56,13 @@
 					<?php echo $session['total_price']." €"; ?></td>
 				</tr>
 			</table>
-			<a id="checkout" href="login.php">Checkout</a>
-			<!-- content end -->
+			<?php
+				if ($_SESSION['logged_in']){
+					echo '<a id="checkout" href="checkout.php">Checkout</a>';
+				}else{
+					echo '<a id="checkout" href="login.php">Checkout</a>';
+				}
+			?>
 		</div>
 	</body>
 </html>

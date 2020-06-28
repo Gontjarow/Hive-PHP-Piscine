@@ -100,8 +100,7 @@
 		}
 	}
 
-	function set_admin(string $login, int $status)
-	{
+	function set_admin(string $login, int $status){
 		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
@@ -114,6 +113,39 @@
 			return FALSE;
 		}
 		else
-			echo "wewew";
+			return TRUE;
+	}
+
+	function update_order($login, $cart){
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
+		if (!$link){
+			die('Could not connect: ' . mysqli_connect_error());
+		}
+		$login = mysqli_real_escape_string($link, $login);
+		$cart = mysqli_real_escape_string($link, $cart);
+		$query = "SELECT * FROM orders WHERE login = '$login'";
+		$data = mysqli_query($link,$query);
+		$row = mysqli_fetch_array($data, MYSQLI_ASSOC);
+		mysqli_free_result($data);
+		if ($row) {
+				$repeat = TRUE;
+				$query = "UPDATE orders SET cart='$cart' WHERE login = '$login'";
+				if (!mysqli_query($link, $query)){
+					echo "ERROR: ($query)" . mysqli_connect_error($link);
+					return FALSE;
+				}else{
+					echo "success!";
+					return TRUE;
+				}
+		}else{
+			$query = "INSERT INTO `orders`(`login`, `cart`) VALUES ('$login','$cart')";
+			if(mysqli_query($link, $query)){
+				echo "Order inserted successfully.";
+				return TRUE;
+			} else{
+				echo "ERROR: Could not able to execute $sql. " . mysqli_connect_error($link);
+				return FALSE;
+			}
+		}
 	}
 ?>

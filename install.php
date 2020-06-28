@@ -162,6 +162,7 @@
 		$message .= 'Whole query: '.$query;
 		die($message);
 	}
+	
 	mysqli_close($con);
 
 
