@@ -1,5 +1,6 @@
 <?php
-	include("user_db.php");
+	include_once("query_db.php");
+	include_once("user_db.php");
 	session_start();
 	define(PASSWORD, "password");
 	$user = get_user($_SESSION['logged_in']);
