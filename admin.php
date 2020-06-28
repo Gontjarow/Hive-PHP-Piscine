@@ -46,10 +46,10 @@
 			<!-- content begin -->
 			<table id=cart-content>
 				<tr class="cart-item">
-					<td class="name">Username</td>
-					<td class="price"></td>
-					<td class="count"></td>
-					<td class="total"></td>
+					<th class="name">Username</th>
+					<th class="price"></th>
+					<th class="count"></th>
+					<th class="total"></th>
 				</tr>
 			<?php
 				$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
@@ -63,6 +63,7 @@
 
 				foreach ($data as $user)
 				{
+					// echo "<!--", "\nCart ", print_r($user, TRUE), "-->", "\n";
 					echo '<tr class="cart-item">';
 					echo '<td class="name">' . $user['login'] . '</td>';
 					echo '<td class="price">';
@@ -77,13 +78,51 @@
 						'<input type="button" class="button ', $user['admin'] ? 'safe' : 'danger',
 							'" value="', $user['admin'] ? 'Demote' : 'Promote' ,'" /></a>';
 					echo '</td>';
-					echo "<!--", "\nCart ", print_r($user, TRUE), "-->", "\n";
 				}
 			?>
 			</table>
 
-			<!-- <a id="checkout" href="checkout.php">Checkout</a> -->
-			<!-- content end -->
+			<!-- Validated Orders -->
+			<table id=cart-content>
+				<tr class="cart-item">
+					<td class="name">Received orders</td>
+				</tr>
+				<tr class="cart-item">
+					<th class="name">Username / Product</th>
+					<th class="price">Price</th>
+					<th class="count">Count</th>
+					<th class="total">Total</th>
+				</tr>
+			<?php
+				$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
+				if (!$link){
+					die('Could not connect: ' . mysqli_connect_error());
+				}
+				$query = 'SELECT * FROM orders ORDER BY id DESC';
+				$data = mysqli_query($link, $query);
+				$orders = mysqli_fetch_all($data, MYSQLI_ASSOC);
+				// echo "<!--", "\nTest ", print_r($test, TRUE), "-->", "\n";
+
+				foreach ($orders as $user)
+				{
+					echo '<tr class="cart-item">';
+					echo '<th class="name">', $user['login'], '</th>';
+					echo '<th></th><th></th><th></th></tr>';
+					$user_session = unserialize($user['cart']);
+					echo "<!--", "\nUserSession ", print_r($user_session, TRUE), "-->", "\n";
+					foreach ($user_session['cart'] as $key => $value)
+					{
+						$item = get_single_product($key);
+						echo '<tr class="cart-item">';
+						echo '<td class="name">'. $item['name']. '</td>';
+						echo '<td class="price">'.$item['price'].' €</td>';
+						echo '<td class="count">'.$value.'</td>';
+						echo '<td class="total">'.$item['price']*$value.' €</td>';
+						echo '</tr>';
+					}
+				}
+			?>
+			</table>
 		</div>
 	</body>
 </html>
