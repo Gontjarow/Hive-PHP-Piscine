@@ -22,12 +22,7 @@
 		<title>e-commerce</title>
 	</head>
 	<body>
-		<div id="top-bar">
-			<a id="top-logo" href="index.php">Bread house</a>
-			<a id="top-login" class="button" href="login.php">Login</a>
-			<a id="top-cart" class="button" href="product.php">Cart</a>
-		</div>
-		<div id="front-banner"></div>
+		<?php require('page-header.html'); ?>
 		<div id="site-wrapper">
 			<!-- content begin -->
 			<div id="product-main">

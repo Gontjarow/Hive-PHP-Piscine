@@ -1,5 +1,5 @@
 <?php
-define(PASSWORD, "password");
+	define(PASSWORD, "password");
 	function get_products(){
 		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){

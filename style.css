@@ -34,6 +34,9 @@ body {
 	width: 100%;
 	height: 360px;
 	background-color: teal;
+	background-size: cover;
+	background-position: center;
+	background-image: url('https://www.well-beingsecrets.com/wp-content/uploads/What-is-gluten.jpg');
 }
 
 #site-wrapper {
@@ -56,6 +59,18 @@ body {
 	background-color: paleturquoise;
 }
 
+#categories.big {
+	height: 80px;
+}
+
+#categories.big > .button {
+	height: 100%;
+	padding: 0;
+	line-height: 80px;
+	text-align: center;
+	background-color: paleturquoise;
+}
+
 .button {
 	float: left;
 	width: 100px;
@@ -65,3 +80,24 @@ body {
 	background-color: orange;
 }
 
+.button.warning {
+	margin: 10px 5% 10px 5%;
+	padding: 10px 0;
+	border-radius: 6px;
+	border-width: 0;
+	background-color: rgb(255, 217, 0);
+	color: white;
+	text-align: center;
+	font-size: 16px;
+}
+
+.button.danger {
+	margin: 10px 5% 10px 5%;
+	padding: 10px 0;
+	border-radius: 6px;
+	border-width: 0;
+	background-color: rgb(206, 69, 69);
+	color: white;
+	text-align: center;
+	font-size: 16px;
+}

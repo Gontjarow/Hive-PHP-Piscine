@@ -10,12 +10,7 @@
 		<title>e-commerce</title>
 	</head>
 	<body>
-		<div id="top-bar">
-			<a id="top-logo" href="index.php">Bread house</a>
-			<a id="top-login" class="button" href="login.php">Login</a>
-			<a id="top-cart" class="button" href="product.php">Cart</a>
-		</div>
-		<div id="categories" class="big"></div>
+		<?php require('page-header.html'); ?>
 		<div id="site-wrapper">
 			<!-- content begin -->
 			<!-- list specific category, order by name -->
