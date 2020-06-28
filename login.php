@@ -1,4 +1,5 @@
 <?php
+	include ("user_db.php");
 	function sanitize_input($data)
 	{
 		$data = trim($data);
@@ -13,13 +14,21 @@
 	if ($_POST["register"]){
 		$login = sanitize_input($_POST["login"]);
 		$passwd = sanitize_input($_POST["passwd"]);
-		if (log_in($login, $passwd)){
-			
+		if (add_user($login, $passwd)){
+			echo "success\n";
+		}else{
+			echo ' alert("Give another username!")';
 		}
+		// print_r($newuser);
 	}
 	if ($_POST["submit"]){
 		$login = sanitize_input($_POST["login"]);
 		$passwd = sanitize_input($_POST["passwd"]);
+		// if (log_in($login, $passwd)){
+		// 	header("Location: /checkout.php");
+		// }else{
+		// 	echo ' alert("Wrong username or password!")';
+		// }
 	}
 ?>
 

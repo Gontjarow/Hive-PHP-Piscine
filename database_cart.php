@@ -7,7 +7,6 @@
 			return true;
 		}else{
 			$_SESSION['cart'][$id] = 1;
-			// $_SESSION['cart']['id']['nb'] = 1;
 			return true;
 		}
 		return false;

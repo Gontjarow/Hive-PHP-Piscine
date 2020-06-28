@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	$session = $_SESSION;
+	// print_r($session['cart']);
 ?>
 
 <html>
@@ -28,10 +29,6 @@
 					<td class="total">Total price for each item</td>
 				</tr>
 			<?php
-
-
-				foreach ($session['cart'] as $item)
-				{
 					$link = mysqli_connect("localhost:3306", "root", 'password', "rush00");
 					if (!$link){
 						die('Could not connect: ' . mysqli_connect_error());
@@ -45,15 +42,12 @@
 							}
 							echo '<tr class="cart-item">';
 							echo '<td class="name">'. $item['name']. '</td>';
-							
 							echo '<td class="price">'.$item['price'].' €</td>';
-
 							echo '<td class="count">'.$num.'</td>';
 							echo '<td class="total">'.$item['price']*$num.' €</td>';
 							echo '</tr>';
 						}
 					}
-				}
 			?> 
 				<tr class="cart-item">
 					<td class="name">Total</td>
