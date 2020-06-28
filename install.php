@@ -136,7 +136,10 @@
 	}
 	$passwd = hash('whirlpool', 'root');
 	$admin = TRUE;
-	if (!mysqli_query($con, "SELECT * FROM users WHERE id = 1")){
+
+	$data = mysqli_query($con, "SELECT * FROM users WHERE id = 1");
+	$item = mysqli_fetch_array($data, MYSQLI_ASSOC);
+	if (!$item){
 		$query = "INSERT INTO users (`id`, `login`, `passwd`, `admin`) VALUES (1,'root','$passwd', 1)";
 		if (mysqli_query($con, $query)){
 			echo "";
@@ -144,7 +147,7 @@
 			$message  = 'Invalid query: '.mysqli_connect_error()."\n";
 			$message .= 'Whole query: '.$query;
 			die($message);
-	}
+		}
 	}
 	mysqli_close($con);
 

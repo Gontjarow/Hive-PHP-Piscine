@@ -38,6 +38,7 @@
 		$user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		mysqli_free_result($result);
 		if (hash('whirlpool', $_POST['passwd']) == $user['passwd']){
+			$_SESSION['logged_in'] = $login;
 			return TRUE;
 		}else{
 			return FALSE;

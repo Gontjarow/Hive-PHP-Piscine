@@ -7,10 +7,13 @@
 	session_start();
 	// print_r($_GET);
 	if ($_GET['action'] == 'add_to_cart') {
-		// echo "hello\n";
 		add_to_cart($_GET['id']);
 		$_SESSION['item_nb'] = cal_num($_SESSION['cart']);
 		$_SESSION['total_price'] = cal_price($_SESSION['cart']);
+		if (isset($_SESSION['logged_in'])){
+			$user_cart = serialize($_SESSION);
+			update_user_cart($_SESSION['logged_in'], $user_cart);
+		}
 	}
 	print_r($_SESSION);
 ?>
