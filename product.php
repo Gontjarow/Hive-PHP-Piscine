@@ -4,9 +4,7 @@
 	include("database_cart.php");
 	include("user_db.php");
 	$product = get_single_product($_GET["id"]);
-	// print_r($product);
 	session_start();
-	// print_r($_GET);
 	if ($_GET['action'] == 'add_to_cart') {
 		add_to_cart($_GET['id']);
 		$_SESSION['item_nb'] = cal_num($_SESSION['cart']);
@@ -16,7 +14,6 @@
 			update_user_cart($_SESSION['logged_in'], $user_cart);
 		}
 	}
-	print_r($_SESSION);
 ?>
 
 <html>
@@ -36,18 +33,15 @@
 
 				<div id="product-right">
 					<h1 id="product-name"><? echo $product["name"]; ?></h1>
-					<h2 id="product-price"><? echo $product["price"]; ?></h2>
+					<h2 id="product-price"><? echo $product["price"]; echo ' €'; ?></h2>
 					<p id="product-info"><? echo $product["information"]; ?></p>
 				</div>
 			</div>
-				<div id="product-showcase">sdf</div>
+				<div id="product-showcase"></div>
 				<form id="product-actions">
 					<?php
 						echo "<a href=\"/product.php?action=add_to_cart&id=" . $product["id"] . "\" ><input type=\"button\" value=\"ADD CART\" /></a>";
 					?>
-
-					<!-- <a href="/product.php?action=add_to_cart&id=" ><input type="button" value="ADD CART" /></a> -->
-					<!-- <input type="button" value="BUY NOW" /> -->
 				</form>
 			<!-- content end -->
 		</div>

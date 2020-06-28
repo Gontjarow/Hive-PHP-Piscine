@@ -19,6 +19,12 @@
 	margin-top: 5%;
 }
 
+#input{
+	/* margin-left: 50px; */
+	text-align: left;
+	/* position: relative; */
+}
+
 #debug {
 	display: block;
 	overflow: scroll;

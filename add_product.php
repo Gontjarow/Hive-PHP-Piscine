@@ -20,7 +20,7 @@ session_start();
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="category.css">
+		<link rel="stylesheet" type="text/css" href="login.css">
 		<title>e-commerce</title>
 	</head>
 	<body>
@@ -28,17 +28,17 @@ session_start();
 			<div id="site-wrapper">
 				<h2>Add a new product</h2>
 				<form id="login-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-					Name: <input id="login-input" type="text" name="name"/>
+					Name: <input id="input" type="text" name="name"/>
 					<br />
-					Information: <input id="passwd-input" type="text" name="information"/>
+					Information: <input id="input" type="text" name="information"/>
 					<br />
-					Price (in euro): <input id="passwd-input" type="text" name="price"/>
+					Price (in euro): <input id="input" type="text" name="price"/>
 					<br />
-					Bread category: <input id="passwd-input" type="text" name="category"/>
+					Bread category: <input id="input" type="text" name="category"/>
 					<br />
-					Origin: <input id="passwd-input" type="text" name="origin"/>
+					Origin: <input id="input" type="text" name="origin"/>
 					<br />
-					URL for picture: <input id="passwd-input" type="text" name="img"/>
+					URL for picture: <input id="input" type="text" name="img"/>
 					<input id="login-button" type="submit" name="submit" value="Add">
 				</form>
 			</div>

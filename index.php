@@ -13,8 +13,6 @@
 	if ($_GET['action'] == 'logout')
 	{
 		$_SESSION = array();
-		// $_SESSION['logged_in'] = "";
-		// session_destroy();
 	}
 ?>
 
@@ -27,8 +25,6 @@
 	<body>
 	<?php require('page-header.php'); ?>
 		<div id="site-wrapper">
-		<!-- content begin -->
-			<!-- list all products, random order? -->
 			<table id=category-products>
 			<?php
 				for ($i=0, $max=count($products); $i < $max; $i++)
@@ -42,12 +38,10 @@
 					}
 					$url = $products[$i]['img'];
 					echo "<td style=\"background-image: url(", $products[$i]["img"] ,")\"><h1 class=\"name\"><a href=\"product.php?id=" . $products[$i]['id'] . "\">", $products[$i]["name"], "</a></h1>";
-					echo "<h2 class=\"price\">", $products[$i]["price"], "</h2></td>";
 				}
 				echo "</tr>";
 			?>
 			</table>
 		</div>
-		<!-- content end -->
 	</body>
 </html>
