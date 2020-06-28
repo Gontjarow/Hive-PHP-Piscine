@@ -78,4 +78,24 @@
 		return($products);
 	}
 
+	function add_product($name, $information, $price, $category, $origin, $img){
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
+		if (!$link){
+			die('Could not connect: ' . mysqli_connect_error());
+		}
+		$name = mysqli_real_escape_string($link, $name);
+		$information = mysqli_real_escape_string($link, $information);
+		$price = mysqli_real_escape_string($link, $price);
+		$category = mysqli_real_escape_string($link, $category);
+		$origin = mysqli_real_escape_string($link, $origin);
+		$img = mysqli_real_escape_string($link, $img);
+		$query = "INSERT INTO `product`(`name`, `information`, `price`, `category`, `origin`, `img`) VALUES ('$name','$information','$price','$category','origin','img')";
+		if(mysqli_query($link, $query)){
+			return TRUE;
+		} else{
+			echo "ERROR: Could not able to execute $sql. " . mysqli_connect_error($link);
+			return FALSE;
+		}
+	}
+
 ?>
