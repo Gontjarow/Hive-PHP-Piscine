@@ -2,10 +2,13 @@
 	define(PASSWORD, "password");
 
 	function add_user($login, $passwd){
+		
 		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
+		$login = mysqli_real_escape_string($link, $login);
+		$passwd = mysqli_real_escape_string($link, $passwd);
 		$repeat = FALSE;
 		$admin = FALSE;
 		$query = "SELECT login FROM users";
@@ -33,8 +36,7 @@
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
-		// $repeat = FALSE;
-		// $admin = FALSE;
+		$login = mysqli_real_escape_string($link, $login);
 		$query = "DELETE FROM users WHERE login='$login'";
 		if(mysqli_query($link, $query)){
 			echo "User deleted successfully.";
@@ -50,6 +52,8 @@
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
+		$login = mysqli_real_escape_string($link, $login);
+		$passwd = mysqli_real_escape_string($link, $passwd);
 		$query = "SELECT * FROM users WHERE login = '$login'";
 		$result = mysqli_query($link, $query);
 		$user = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -67,6 +71,8 @@
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
+		$login = mysqli_real_escape_string($link, $login);
+		$cart = mysqli_real_escape_string($link, $cart);
 		$query = "UPDATE `users` SET `cart`= '$cart' WHERE login = '$login'";
 		if(mysqli_query($link, $query)){
 			return TRUE;
@@ -81,6 +87,7 @@
 		if (!$link){
 			die('Could not connect: ' . mysqli_connect_error());
 		}
+		$login = mysqli_real_escape_string($link, $login);
 		$query = "SELECT * FROM users WHERE login = '$login'";
 		$result = mysqli_query($link, $query);
 		$user = mysqli_fetch_array($result, MYSQLI_ASSOC);
