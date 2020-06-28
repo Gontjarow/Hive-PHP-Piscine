@@ -7,9 +7,9 @@
 		$data = htmlspecialchars($data);
 		return $data;
 	}
-	// session_start();
-	$_SESSION["login"];
-	$_SESSION["passwd"];
+	// // session_start();
+	// $_SESSION["login"];
+	// $_SESSION["passwd"];
 
 	if ($_POST["register"]){
 		$login = sanitize_input($_POST["login"]);
@@ -22,7 +22,9 @@
 		$login = sanitize_input($_POST["login"]);
 		$passwd = sanitize_input($_POST["passwd"]);
 		if (log_in($login, $passwd)){
-			echo "success!";
+			
+			header("location: http://localhost:8000/checkout.php");
+			// return;
 		}else{
 			echo "<script type='text/javascript'>alert('Wrong username or password!');</script>";
 		}
@@ -39,7 +41,7 @@
 		<div id="top-bar">
 			<a id="top-logo" href="index.php">Bread house</a>
 			<a id="top-login" class="button" href="login.php">Login</a>
-			<a id="top-cart" class="button" href="cart.php">Cart</a>
+			<a id="top-cart" class="button" href="product.php">Cart</a>
 		</div>
 		<div id="site-wrapper">
 			<form id="login-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">

@@ -1,5 +1,6 @@
 <?php
 	define(PASSWORD, "password");
+	
 	function add_user($login, $passwd){
 		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
 		if (!$link){
@@ -36,11 +37,10 @@
 		$user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		mysqli_free_result($result);
 		if (hash('whirlpool', $_POST['passwd']) == $user['passwd']){
-			echo "successfully logged in!";
-			header("Location: /checkout.php");
 			return TRUE;
 		}else{
 			return FALSE;
 		}
+
 	}
 ?>
