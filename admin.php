@@ -22,6 +22,14 @@
 		$serial = serialize($user_session);
 		update_user_cart($_GET['login'], $serial);
 	}
+	else if ($_GET['action'] == 'toggle_admin')
+	{
+		if ($_GET['login'] != "root")
+		{
+			$user = get_user($_GET['login']);
+			set_admin($user['login'], !$user['admin']);
+		}
+	}
 ?>
 
 <html>
@@ -60,6 +68,12 @@
 					echo '</td>';
 					echo '<td class="price">';
 						echo '<a href="/admin.php?action=delete_user&login=', $user['login'], '"><input type="button" class="button danger" value="Delete user" /></a>';
+					echo '</td>';
+					echo '</td>';
+					echo '<td class="price">';
+						echo '<a href="/admin.php?action=toggle_admin&login=', $user['login'], '">',
+						'<input type="button" class="button ', $user['admin'] ? 'safe' : 'danger',
+							'" value="', $user['admin'] ? 'Demote' : 'Promote' ,'" /></a>';
 					echo '</td>';
 					echo "<!--", "\nCart ", print_r($user, TRUE), "-->", "\n";
 				}
