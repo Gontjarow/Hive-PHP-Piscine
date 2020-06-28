@@ -6,27 +6,23 @@
 		$data = htmlspecialchars($data);
 		return $data;
 	}
-
-	function insert_value($key)
-	{
-		$value = $_SESSION[$key] ?? "";
-
-		if ($value)
-			echo " value=\"{$value}\"";
-	}
-
 	// session_start();
 	$_SESSION["login"];
 	$_SESSION["passwd"];
 
-	if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["submit"])
-	{
-		$user = sanitize_input($_POST["login"]);
-		$pass = sanitize_input($_POST["passwd"]);
-		$_SESSION["login"] = $user;
-		$_SESSION["passwd"] = $pass;
+	if ($_POST["register"]){
+		$login = sanitize_input($_POST["login"]);
+		$passwd = sanitize_input($_POST["passwd"]);
+		if (log_in($login, $passwd)){
+			
+		}
+	}
+	if ($_POST["submit"]){
+		$login = sanitize_input($_POST["login"]);
+		$passwd = sanitize_input($_POST["passwd"]);
 	}
 ?>
+
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="style.css">
@@ -41,10 +37,11 @@
 		</div>
 		<div id="site-wrapper">
 			<form id="login-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
-				Username: <input id="login-input" type="text" name="login"<?php insert_value("login"); ?> />
+				Username: <input id="login-input" type="text" name="login"/>
 				<br />
-				Password: <input id="passwd-input" type="password" name="passwd"<?php insert_value("passwd"); ?> />
-				<input id="login-button" type="submit" name="submit" value="OK">
+				Password: <input id="passwd-input" type="password" name="passwd"/>
+				<input id="login-button" type="submit" name="submit" value="Log in">
+				<input id="login-button" type="submit" name="register" value="Create new user">
 			</form>
 		</div>
 	</body>
