@@ -1,3 +1,5 @@
+<?php include_once("user_db.php"); ?>
+
 <div id="top-bar">
 	<a id="top-logo" href="index.php">Bread house</a>
 	<?php
@@ -5,7 +7,8 @@
 		if ($user)
 		{
 			echo '<a id="top-login" class="button" href="index.php?action=logout">Logout</a>';
-			// if (user is admin)
+			$db_user = get_user($user);
+			if ($db_user['admin'])
 				echo '<a id="top-admin" class="button" href="admin.php">Admin</a>';
 		}
 		else
