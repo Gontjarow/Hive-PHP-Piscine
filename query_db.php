@@ -89,7 +89,7 @@
 		$category = mysqli_real_escape_string($link, $category);
 		$origin = mysqli_real_escape_string($link, $origin);
 		$img = mysqli_real_escape_string($link, $img);
-		$query = "INSERT INTO `product`(`name`, `information`, `price`, `category`, `origin`, `img`) VALUES ('$name','$information','$price','$category','origin','img')";
+		$query = "INSERT INTO `product`(`name`, `information`, `price`, `category`, `origin`, `img`) VALUES ('$name','$information','$price','$category','$origin','$img')";
 		if(mysqli_query($link, $query)){
 			return TRUE;
 		} else{

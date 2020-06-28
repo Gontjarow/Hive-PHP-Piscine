@@ -2,8 +2,10 @@
 	include("user_db.php");
 	session_start();
 	define(PASSWORD, "password");
-	echo "<!--", "\nSession ", print_r($_SESSION, TRUE), "-->", "\n";
-
+	$user = get_user($_SESSION['logged_in']);
+	if (!$user['admin']){
+		header("location: http://localhost:8000/index.php");
+	}
 	if ($_GET['action'] == 'delete_user')
 	{
 		$user = $_GET['login'];
