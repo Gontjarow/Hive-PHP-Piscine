@@ -38,11 +38,26 @@
 		$user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		mysqli_free_result($result);
 		if (hash('whirlpool', $_POST['passwd']) == $user['passwd']){
-			$_SESSION['logged_in'] = $login;
+			
 			return TRUE;
 		}else{
 			return FALSE;
 		}
 
+	}
+
+	function update_user_cart($login, $cart){
+		$link = mysqli_connect("localhost:3306", "root", PASSWORD, "rush00");
+		if (!$link){
+			die('Could not connect: ' . mysqli_connect_error());
+		}
+		$query = "UPDATE `users` SET `cart`= '$cart' WHERE login = '$login'";
+		if(mysqli_query($link, $query)){
+			echo "Update successfully!";
+			return TRUE;
+		} else{
+			echo "ERROR: Could not able to execute $sql. " . mysqli_connect_error($link);
+			return FALSE;
+		}
 	}
 ?>

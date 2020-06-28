@@ -7,7 +7,7 @@
 		$data = htmlspecialchars($data);
 		return $data;
 	}
-	// // session_start();
+	// session_start();
 	// $_SESSION["login"];
 	// $_SESSION["passwd"];
 
@@ -22,7 +22,7 @@
 		$login = sanitize_input($_POST["login"]);
 		$passwd = sanitize_input($_POST["passwd"]);
 		if (log_in($login, $passwd)){
-			header("location: http://localhost:8000/checkout.php");
+			header("location: http://localhost:8000/cart.php?login=$login");
 		}else{
 			echo "<script type='text/javascript'>alert('Wrong username or password!');</script>";
 		}

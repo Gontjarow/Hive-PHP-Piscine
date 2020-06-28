@@ -2,6 +2,7 @@
 	include("install.php");
 	include("query_db.php");
 	include("database_cart.php");
+	include("user_db.php");
 	$product = get_single_product($_GET["id"]);
 	// print_r($product);
 	session_start();

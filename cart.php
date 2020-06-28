@@ -1,8 +1,14 @@
 <?php
 	session_start();
-	define(PASSWORD, "password");
+	include("user_db.php");
 	$session = $_SESSION;
-	// print_r($session['cart']);
+	define(PASSWORD, "password");
+	if ($_GET['login']){
+		$_SESSION['logged_in'] = $_GET['login'];
+		$user_cart = serialize($_SESSION);
+		update_user_cart($_GET['login'], $user_cart);
+		print_r($_SESSION);
+	}
 ?>
 
 <html>

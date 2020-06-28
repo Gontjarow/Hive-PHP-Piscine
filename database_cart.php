@@ -36,7 +36,6 @@
 					$item =  mysqli_fetch_array($data, MYSQLI_ASSOC);
 					$total_price += $num * $item['price'];
 				}
-				// mysqli_free_result($data);
 			}
 		}
 		mysqli_close($link);
