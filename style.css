@@ -48,7 +48,7 @@ body {
 
 #categories {
 	height: 40px;
-	background-color: orangered;
+	background-color: #2c3f65;
 }
 
 #categories.mini > .button {
