@@ -16,7 +16,8 @@
 	height: max(10vw, 200px);
 	background-size: cover;
 	text-decoration: none;
-	color: black;
+	color: white;
+	text-shadow: 0.125rem 0.125rem 0.5rem black;
 	background-position: center;
 }
 
