@@ -14,21 +14,18 @@
 	if ($_POST["register"]){
 		$login = sanitize_input($_POST["login"]);
 		$passwd = sanitize_input($_POST["passwd"]);
-		if (add_user($login, $passwd)){
-			echo "success\n";
-		}else{
-			echo ' alert("Give another username!")';
+		if (!add_user($login, $passwd)){
+			echo "<script type='text/javascript'>alert('Give another username!');</script>";
 		}
-		// print_r($newuser);
 	}
 	if ($_POST["submit"]){
 		$login = sanitize_input($_POST["login"]);
 		$passwd = sanitize_input($_POST["passwd"]);
-		// if (log_in($login, $passwd)){
-		// 	header("Location: /checkout.php");
-		// }else{
-		// 	echo ' alert("Wrong username or password!")';
-		// }
+		if (log_in($login, $passwd)){
+			echo "success!";
+		}else{
+			echo "<script type='text/javascript'>alert('Wrong username or password!');</script>";
+		}
 	}
 ?>
 
