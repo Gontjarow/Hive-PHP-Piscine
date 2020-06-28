@@ -38,7 +38,6 @@
 		$user = mysqli_fetch_array($result, MYSQLI_ASSOC);
 		mysqli_free_result($result);
 		if (hash('whirlpool', $_POST['passwd']) == $user['passwd']){
-			
 			return TRUE;
 		}else{
 			return FALSE;
@@ -53,7 +52,6 @@
 		}
 		$query = "UPDATE `users` SET `cart`= '$cart' WHERE login = '$login'";
 		if(mysqli_query($link, $query)){
-			echo "Update successfully!";
 			return TRUE;
 		} else{
 			echo "ERROR: Could not able to execute $sql. " . mysqli_connect_error($link);

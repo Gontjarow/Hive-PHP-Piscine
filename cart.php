@@ -7,7 +7,6 @@
 		$_SESSION['logged_in'] = $_GET['login'];
 		$user_cart = serialize($_SESSION);
 		update_user_cart($_GET['login'], $user_cart);
-		print_r($_SESSION);
 	}
 ?>
 
