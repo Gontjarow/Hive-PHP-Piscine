@@ -35,7 +35,6 @@ class Matrix
 
 	public function mult(Matrix $rhs) : Matrix
 	{
-		echo "---------- hooooooweeeeee ----------", "\n";
 		$matrix = [
 			[0.0, 0.0, 0.0, 0.0],
 			[0.0, 0.0, 0.0, 0.0],
@@ -63,6 +62,27 @@ class Matrix
 		return new Matrix([self::MATRIX => $matrix]);
 	}
 
+	public function transformVertex(Vertex $vert) : Vertex
+	{
+		return new Vertex([
+			'x' =>
+				$this->matrix[0][0] * $vert->x +
+				$this->matrix[0][1] * $vert->y +
+				$this->matrix[0][2] * $vert->z +
+				$this->matrix[0][3] * $vert->w,
+			'y' =>
+				$this->matrix[1][0] * $vert->x +
+				$this->matrix[1][1] * $vert->y +
+				$this->matrix[1][2] * $vert->z +
+				$this->matrix[1][3] * $vert->w,
+			'z' =>
+				$this->matrix[2][0] * $vert->x +
+				$this->matrix[2][1] * $vert->y +
+				$this->matrix[2][2] * $vert->z +
+				$this->matrix[2][3] * $vert->w,
+		]);
+	}
+
 	private function translation(Vector $vec)
 	{
 		if ($vec->x || $this->y || $this->z)
@@ -76,7 +96,7 @@ class Matrix
 		];
 	}
 
-	private function scaleF(float $f)
+	private function scaleF($f)
 	{
 		if ($f != 1.0)
 			$this->is_identity = FALSE;
@@ -89,7 +109,7 @@ class Matrix
 		];
 	}
 
-	private function scale(float $x, float $y, float $z)
+	private function scale($x, $y, $z)
 	{
 		if ($x != 1.0 || $y != 1.0 || $z != 1.0)
 			$this->is_identity = FALSE;
@@ -102,7 +122,7 @@ class Matrix
 		];
 	}
 
-	private function rotate(string $axis, float $radians)
+	private function rotate(string $axis, $radians)
 	{
 		$this->is_identity = FALSE;
 		$cos = cos($radians);
@@ -127,7 +147,7 @@ class Matrix
 		];
 	}
 
-	private function projection(float $fov, float $near, float $far, float $ratio)
+	private function projection($fov, $near, $far, $ratio)
 	{
 		$this->is_identity = FALSE;
 		$scale = tan($fov * 0.5 * M_PI / 180) * $near;
@@ -143,8 +163,6 @@ class Matrix
 		];
 	}
 
-	// magic
-
 	function __toString()
 	{
 		return sprintf("M | vtcX | vtcY | vtcZ | vtxO\n-----------------------------\nx | %.2f | %.2f | %.2f | %.2f\ny | %.2f | %.2f | %.2f | %.2f\nz | %.2f | %.2f | %.2f | %.2f\nw | %.2f | %.2f | %.2f | %.2f",
@@ -156,7 +174,6 @@ class Matrix
 
 	function __construct(array $args = array())
 	{
-		print_r($args);
 		if ($args[self::MATRIX])
 		{
 			$this->matrix = $args[self::MATRIX];
@@ -203,12 +220,12 @@ class Matrix
 				if ($this->is_identity)
 					echo 'Matrix IDENTITY constructed.', "\n";
 				else
-					echo 'Matrix ', strtoupper((string)$arg), ' constructed.', "\n";
+					echo 'Matrix ', strtoupper((string)$arg), 'preset constructed.', "\n";
 			}
 		}
 		else
 		{
-			if (self::$verbose) echo 'Matrix IDENTITY constructed.', "\n";
+			if (self::$verbose) echo 'Matrix IDENTITY instance constructed.', "\n";
 		}
 	}
 
