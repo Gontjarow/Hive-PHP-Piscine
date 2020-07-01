@@ -13,6 +13,8 @@ If verbose output is enabled, it is considered an error to not specify
 the X, Y, and Z values. A notification will be shown and
 omitted values will default to 0.0.
 
+If verbose output is enabled, the color will be included, otherwise omitted.
+
 Verbose output may also be enabled in two ways
 (Order does not matter for the second method):
     Vertex::$verbose = TRUE;

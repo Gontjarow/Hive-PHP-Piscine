@@ -27,10 +27,15 @@ class Vertex
 	function __toString()
 	{
 		if (self::$verbose)
-		return sprintf("Vertex( x:%.2f, y:%.2f, z:%.2f w:%.2f, %s )",
-			$this->_x, $this->_y, $this->_z, $this->_w, $this->_color);
-		return sprintf("Vertex( x:%.2f, y:%.2f, z:%.2f w:%.2f )",
-			$this->_x, $this->_y, $this->_z, $this->_w);
+		{
+			return sprintf("Vertex( x:%.2f, y:%.2f, z:%.2f w:%.2f, %s )",
+				$this->_x, $this->_y, $this->_z, $this->_w, $this->_color);
+		}
+		else
+		{
+			return sprintf("Vertex( x:%.2f, y:%.2f, z:%.2f w:%.2f )",
+				$this->_x, $this->_y, $this->_z, $this->_w);
+		}
 	}
 
 	public function __get($key)
