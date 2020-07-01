@@ -103,7 +103,8 @@ class Vector
 	}
 	function cos(Vector $rhs) : float
 	{
-		//
+		return $this->dotProduct($rhs) /
+			($this->magnitude() * $rhs->magnitude());
 	}
 
 	// magic
@@ -143,27 +144,4 @@ class Vector
 	}
 }
 
-// Vector::$verbose = true;
-// Vertex::$verbose = true;
-// $test0 = new Vector(['dest' => new Vertex(['x' => 10])]);
-// $test1 = new Vector();
-// $idk = new Vector(['x' => 1]);
-// echo $idk, "\n";
-
-// $idk->z = 2;
-// echo $idk->z, "\n";
-
-// $test = $test;
-// echo "hmm", "\n";
-// $test = new Vector();
-// echo $test, "\n";
-
-// echo "-- dest1", "\n";
-// $dest1 = new Vertex( array( 'x' => -12.34, 'y' => 23.45, 'z' => -34.56 ) );
-// echo "-- vtc1", "\n";
-// $vtc1  = new Vector( array( 'dest' => $dest1 ) );
-// print ( 'vtc1' . $vtc1."\n");
-// echo "-- output", "\n";
-// print( 'opposite of $vtc1 is ' . $vtc1->opposite() . PHP_EOL );
-// echo "-- end --", "\n";
 ?>
