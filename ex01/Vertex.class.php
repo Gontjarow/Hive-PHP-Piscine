@@ -57,7 +57,7 @@ class Vertex
 		$this->_x = 0.0;
 		$this->_y = 0.0;
 		$this->_z = 0.0;
-		$this->_w = 1.0;
+		$this->_w = 0.0;
 		$this->_color = NULL;
 
 		foreach ($args as $key => $val)
