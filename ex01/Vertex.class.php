@@ -26,8 +26,11 @@ class Vertex
 
 	function __toString()
 	{
+		if (self::$verbose)
 		return sprintf("Vertex( x:%.2f, y:%.2f, z:%.2f w:%.2f, %s )",
 			$this->_x, $this->_y, $this->_z, $this->_w, $this->_color);
+		return sprintf("Vertex( x:%.2f, y:%.2f, z:%.2f w:%.2f )",
+			$this->_x, $this->_y, $this->_z, $this->_w);
 	}
 
 	public function __get($key)
@@ -52,9 +55,6 @@ class Vertex
 		$this->_w = 1.0;
 		$this->_color = NULL;
 
-		if (self::$verbose && !isset($args['x'], $args['y'], $args['z']))
-			echo 'Vector construct: x, y, z not fully defined!', "\n";
-
 		foreach ($args as $key => $val)
 		{
 			$key = '_' . $key;
@@ -75,17 +75,4 @@ class Vertex
 	}
 }
 
-// Vertex::$verbose = true;
-// $idk = new Vertex(['x' => 1]);
-// echo $idk, "\n";
-
-// $idk->z = 2;
-// echo $idk->z, "\n";
-// echo "color:", $idk->color, "\n";
-
-// $test = new Color(['rgb' => 0xFFAABB, 'verbose' => TRUE]);
-// $test = $test;
-// echo "hmm", "\n";
-// $test = new Vertex();
-// echo $test, "\n";
 ?>

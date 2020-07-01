@@ -1,0 +1,19 @@
+
+<- Matrix ----------------------------------------------------------------------
+The Matrix class handles lines and directions.
+
+An instance can be constructed with
+
+
+Optionally,
+
+
+
+If verbose output is enabled,
+
+
+Verbose output may also be enabled in two ways
+(Order does not matter for the second method):
+    Matrix::$verbose = TRUE;
+    new Matrix([ 'verbose' => TRUE ]);
+---------------------------------------------------------------------- Matrix ->

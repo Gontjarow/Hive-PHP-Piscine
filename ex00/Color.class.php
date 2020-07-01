@@ -51,15 +51,12 @@ class Color
 
 	function __toString()
 	{
-		return sprintf("Color( red: %3u, green: %3u, blue: %3u )",
+		return sprintf("Color( r:%3u, g:%3u, b:%3u )",
 			$this->red, $this->green, $this->blue);
 	}
 
 	function __construct(array $args = array())
 	{
-		$this->red = 0;
-		$this->green = 0;
-		$this->blue = 0;
 		if (key_exists('rgb', $args))
 		{
 			$val = $args['rgb'];
