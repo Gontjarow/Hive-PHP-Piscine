@@ -1,0 +1,22 @@
+
+<- Vertex ----------------------------------------------------------------------
+The Vertex class handles points in space.
+
+An instance can be constructed with X, Y, and Z values:
+    new Color([ 'x' => 1, 'y' => 2.0, 'z' => -30 ]);
+
+Optionally, W and Color can also be defined:
+    new Color([ 'x' => 0, 'y' => 0, 'z' => 0, 'w' => 1.0,
+                'color' => new Color(['rgb' => 0xFFFFFF]) ]);
+
+If verbose output is enabled, it is considered an error to not specify
+the X, Y, and Z values. A notification will be shown and
+omitted values will default to 0.0.
+
+If verbose output is enabled, the color will be included, otherwise omitted.
+
+Verbose output may also be enabled in two ways
+(Order does not matter for the second method):
+    Vertex::$verbose = TRUE;
+    new Vertex([ 'verbose' => TRUE ]);
+---------------------------------------------------------------------- Vertex ->

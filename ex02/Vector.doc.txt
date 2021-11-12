@@ -1,0 +1,46 @@
+
+<- Vector ----------------------------------------------------------------------
+The Vector class handles lines and directions.
+
+An instance can be constructed with 'orig' and 'dest' values:
+    new Vector(['orig' => Vertex, 'dest' => Vertex]);
+
+Optionally, one (or both) can be omitted,
+this will create new vertices at x0, y0 ,z0 for the omitted point:
+    new Vector(); // Vector with length 0.0
+    new Vector(['dest' => Vertex]);
+
+Verbose output may also be enabled in two ways
+(Order does not matter for the second method):
+    Vector::$verbose = TRUE;
+    new Vector([ 'verbose' => TRUE ]);
+
+The class provides the following methods:
+
+function add(Vector $rhs);
+A + B
+
+function sub(Vector $rhs);
+A - B
+
+function crossProduct(Vector $rhs);
+(A * B) - (A * B)
+
+function scalarProduct($scalar);
+V * scalar
+
+function normalize();
+(x * x) + (y * y) + (z * z)
+
+function opposite();
+V * -1
+
+function magnitude();
+sqrt(normalized)
+
+function dotProduct(Vector $rhs);
+(Ax * Bx) + (Ay * By) + (Az * Bz)
+
+function cos(Vector $rhs);
+dot(A, B) / mag(A) * mag(B)
+---------------------------------------------------------------------- Vector ->

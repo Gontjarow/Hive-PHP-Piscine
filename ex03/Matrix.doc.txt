@@ -1,0 +1,47 @@
+
+<- Matrix ----------------------------------------------------------------------
+
+                           It just works.
+                                   - Todd Howard
+
+The Matrix class handles point transformations. (Row-Major)
+
+An instance can be constructed by specifying a 'preset'
+and its associated values values:
+    new Matrix([ 'preset' => Matrix::IDENTITY ]);
+    new Matrix([ 'preset' => Matrix::TRANSLATION, 'vtc' => $vtc ]);
+    new Matrix([ 'preset' => Matrix::SCALE, 'scale' => 10.0 ]);
+    new Matrix([ 'preset' => Matrix::RX, 'angle' => M_PI_4 ]);
+    new Matrix([ 'preset' => Matrix::RY, 'angle' => M_PI_2 ]);
+    new Matrix([ 'preset' => Matrix::RZ, 'angle' => 2 * M_PI ]);
+    new Matrix([ 'preset' => Matrix::PROJECTION,
+        'fov' => 60,
+        'ratio' => 640/480,
+        'near' => 1.0,
+        'far' => -50.0
+    ]);
+
+Optionally, a plain 2D array (representing a matrix) can be used:
+    new Matrix([ Matrix::MATRIX => [
+        [1.0, 0.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0, 0.0],
+        [0.0, 0.0, 1.0, 0.0],
+        [0.0, 0.0, 0.0, 1.0]
+    ] ]);
+
+For projection matrix, each missing parameter is replaced by a default value.
+
+For all other matrices, missing input will instead create Matrix::IDENTITY
+
+If verbose output is enabled, the constructor will note
+which type of preset was used.
+
+The class provides the following methods:
+
+function mult(Matrix $rhs);
+Multiplies the Matrix by another Matrix.
+
+function transformVertex(Vertex $vert);
+Transforms a Vertex according to current matrix.
+P_ = (M_0 * Px) + (M_1 * Py) + (M_2 * Pz) + (M_3 * Pw)
+---------------------------------------------------------------------- Matrix ->
