@@ -1,0 +1,165 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #505050;
+}
+
+#wrapper {
+	width: 1420;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#banner {
+	height: 137;
+	width: 100%;
+	margin-top: 18;
+	margin-bottom: 20;
+	position: relative;
+}
+
+#banner > img {
+	height: 100%;
+	width: auto;
+	padding-left: 9;
+}
+
+#logo {
+	position: absolute;
+	right: 40px;
+	bottom: -20px;
+}
+
+.reload {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 20px;
+	height: 20px;
+}
+
+.close {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	width: 20px;
+	height: 20px;
+}
+
+.panel {
+	display: inline-block;
+	background-color: #909090;
+	border-radius: 9px;
+	box-shadow: 10px 10px 10px black;
+}
+
+.button {
+	width: 70;
+	height: 65;
+	margin: 10 auto 0;
+}
+.button:first-child {
+	margin-top: 10;
+}
+.button.active {
+	border: 5px solid red;
+	border-radius: 4px;
+}
+.button img {
+	width: 100%;
+	height: 100%;
+}
+
+.panel.left {
+	float: left;
+}
+
+.panel.right {
+	float: right;
+}
+
+.panel.side {
+	width: 140;
+	height: 425;
+	margin: 0 30;
+}
+
+.right .button:nth-child(1) {
+	width: 70;
+	height: 100;
+}
+.right .button:nth-child(2) {
+	width: 70;
+	height: 55;
+}
+.right .button:nth-child(3) {
+	width: 120;
+	height: 70;
+	background-image: url("resources/brick.jpg");
+	background-repeat: repeat;
+}
+
+.panel.center {
+	width: 1000;
+	height: 562;
+	padding: 10;
+	position: relative;
+}
+.panel.center img {
+	width: 100%;
+	height: 100%;
+}
+
+.panel.center .panel.user {
+	background-color: #88ff89;
+	width: 500;
+	height: 150;
+	padding: 10;
+	position: absolute;
+	bottom: -94;
+	left: -245;
+	font-family: Arial;
+}
+.panel.user .narration {
+	font-size: 16px;
+}
+.panel.user .emphasis {
+	font-size: 24px;
+	font-family: Georgia;
+}
+.panel.user .dialogue {
+	font-size: 16px;
+	font-style: italic;
+}
+.panel.user .ominous {
+	text-shadow: 6px 5px 3px rgba(255, 42, 42, 0.666);
+}
+.panel.user input[type=text] {
+	margin: 5 2;
+	width: 378;
+	height: 17;
+}
+.panel.user input[type=button] {
+	margin: 5 2;
+	width: 76;
+	height: 19;
+}
+
+.chair-link {
+	position: absolute;
+	bottom: 30px;
+	left: 325px;
+	width: 125px;
+	height: 200px;
+}
+
+.monitor-link {
+	position: absolute;
+	bottom: 160px;
+	left: 630px;
+	width: 150px;
+	height: 125px;
+}
