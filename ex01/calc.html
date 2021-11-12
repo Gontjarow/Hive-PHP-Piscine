@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>Javascript</title>
+	</head>
+	<body>
+		<script>
+setTimeout(() => { alert('Please, use me...'); }, 30000);
+
+function calc()
+{
+	var lhs = parseInt(document.getElementById('LHS').value);
+	var rhs = parseInt(document.getElementById('RHS').value);
+	var op = document.getElementById('operators').value;
+	var result;
+
+	if ((lhs === NaN || lhs < 0)
+	|| (rhs === NaN || rhs < 0))
+	{
+		alert('Error :(');
+		return;
+	}
+
+	if ((op === '/' || op === '%') && rhs == 0)
+	{
+		alert("It's over 9000!");
+		console.log((op === '/') ? (lhs / rhs) : (lhs % rhs));
+		return;
+	}
+
+	// console.log([lhs, op, rhs]);
+
+	if (op == '+') result = lhs + rhs;
+	if (op == '-') result = lhs - rhs;
+	if (op == '*') result = lhs * rhs;
+	if (op == '/') result = lhs / rhs;
+	if (op == '%') result = lhs % rhs;
+
+	alert(result);
+}
+		</script>
+		<form>
+			<input type="text" name="LHS" id="LHS" />
+			<select name="operators" id="operators">
+				<option value="+">+</option>
+				<option value="-">-</option>
+				<option value="*">*</option>
+				<option value="/">/</option>
+				<option value="%">%</option>
+			</select>
+			<input type="text" name="RHS" id="RHS" />
+			<input type="button" value="Try me!" onclick="calc()" />
+		</form>
+	</body>
+</html>

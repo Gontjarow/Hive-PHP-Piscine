@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>Javascript</title>
+		<style>
+			div {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				border-radius: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+function balloon(size)
+{
+	var elem = document.getElementsByTagName('div');
+
+	if (typeof balloon.size == 'undefined' )
+		balloon.size = 200;
+
+	if ((balloon.size += size) > 420)
+		balloon.size = 200;
+	else if (balloon.size < 200)
+		balloon.size = 200;
+
+	if (balloon.size < 250)
+		balloon.color = 'red';
+	else if (balloon.size < 300)
+		balloon.color = 'blue';
+	else if (balloon.size < 350)
+		balloon.color = 'green';
+	else if (balloon.size < 400)
+		balloon.color = 'blue';
+	else
+		balloon.color = 'red';
+
+	elem[0].style.width = balloon.size;
+	elem[0].style.height = balloon.size;
+	elem[0].style.backgroundColor = balloon.color;
+
+}
+		</script>
+		<div onclick="balloon(10)" onmouseout="balloon(-5)"></div>
+	</body>
+</html>
